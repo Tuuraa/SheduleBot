@@ -57,7 +57,7 @@ class Person:
         self.kurs = kurs_mes
         self.groups = []
 
-        for i in os.listdir("Институты" + '\\' + self.facult_name + '\\' + self.kurs):
+        for i in os.listdir("Институты" + '/' + self.facult_name + '/' + self.kurs):
             self.groups.append(i)
 
         buttons = [types.KeyboardButton(i) for i in self.groups]
