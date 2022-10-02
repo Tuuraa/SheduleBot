@@ -118,7 +118,7 @@ class Person:
     def remove_groups(self):
         self.groups = []
 
-        for i in os.listdir("Институты" + '\\' + self.facult_name + '\\' + self.kurs):
+        for i in os.listdir("Институты" + '/' + self.facult_name + '/' + self.kurs):
             self.groups.append(i)
 
         buttons = [types.KeyboardButton(i) for i in self.groups]
@@ -156,7 +156,7 @@ class Person:
         if (self.facult_name and self.kurs and self.group and self.number_week and day_item) != "":
 
             try:
-                path_schedule = "Институты" + '\\' + self.facult_name + '\\' + self.kurs + '\\' + self.group + '\\' + self.number_week + '\\' + day_item + '.txt'
+                path_schedule = "Институты" + '/' + self.facult_name + '/' + self.kurs + '/' + self.group + '/' + self.number_week + '/' + day_item + '.txt'
                 with open(path_schedule) as file:
                     scheduleText = file.read()
             except:
@@ -178,7 +178,7 @@ class Person:
 
         if str(id) in id_list:
             try:
-                with open("Расписания пользователей\\" + str(id) + '.txt', 'r', encoding='utf8') as file:
+                with open("Расписания пользователей/" + str(id) + '.txt', 'r', encoding='utf8') as file:
                     local_groups = list(file.read().split('\n'))
 
                 self.gors = {}
@@ -209,23 +209,23 @@ class Person:
 
         try:
             list_shed = []
-            with open("Расписания пользователей\\" + f'{id}.txt', 'r', encoding='utf8') as file:
+            with open("Расписания пользователей/" + f'{id}.txt', 'r', encoding='utf8') as file:
                 list_shed = file.read().split('\n')
 
-            if f"{self.facult_name_for_add}\\{self.kurs_for_add}\\{self.group_for_add}" in list_shed:
+            if f"{self.facult_name_for_add}/{self.kurs_for_add}/{self.group_for_add}" in list_shed:
                 return "Эта группа уже в вашем расписании"
 
-            list_shed.append(f"{self.facult_name_for_add}\\{self.kurs_for_add}\\{self.group_for_add}")
+            list_shed.append(f"{self.facult_name_for_add}/{self.kurs_for_add}/{self.group_for_add}")
 
-            with open("Расписания пользователей\\" + f'{id}.txt', 'w', encoding='utf8') as file:
+            with open("Расписания пользователей/" + f'{id}.txt', 'w', encoding='utf8') as file:
                 for i in list_shed:
                     file.write(i + '\n')
 
         except:
             try:
-                with open("Расписания пользователей\\" + f'{id}.txt', 'w+', encoding='utf8') as file:
+                with open("Расписания пользователей/" + f'{id}.txt', 'w+', encoding='utf8') as file:
                     file.write('\n')
-                    file.write(f"{self.facult_name_for_add}\\{self.kurs_for_add}\\{self.group_for_add}")
+                    file.write(f"{self.facult_name_for_add}/{self.kurs_for_add}/{self.group_for_add}")
             except:
                 return "Ошибка"
 
