@@ -6,7 +6,7 @@ import Used_valiables
 from markups_obj import Person
 import Common_markups
 
-bot = telebot.TeleBot(token="5656238548:AAGjSpVQVoYdtFZ8XelLzFEBjqTBkhI7ask")
+bot = telebot.TeleBot(token="")
 
 list_id_persons = []
 now_person = Person(12, "any")
